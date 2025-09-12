@@ -1,33 +1,59 @@
 ---
 import "../styles/global.css";
-import Navbar from "../components/navbar.astro";
-import Footer from "../components/footer.astro";
+import BaseLayout from "../components/BaseLayout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="../styles/global.css" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Ant</title>
-  </head>
-  <body class="bg-lightblue">
-    <header>
-      <Navbar />
-    </header>
+<BaseLayout title="~home">
+  <section>
+    <h1 class="text-5xl text-black font-bold mt-6 mb-6">~home</h1>
+    <h2 class="text-6xl font-bold text-strongblue" id="intro1">
+      Hello, I'm Anthony Davila.
+    </h2>
+  </section>
+  <section>
+    <p class="text-2xl mt-6 mb-6" id="intro2">
+      I’m a software engineer at Citibank, based in Tampa, Florida. While my
+      career has just started, I have experience with Java, Spring Boot, Python,
+      Flask, HTML/CSS, and some JavaScript. I’ve also worked on some hardware
+      and embedded projects using Raspberry Pis, microcontrollers, AVR assembly,
+      VHDL, C, and C++.
+    </p>
+    <p class="text-2xl mt-6 mb-6" id="intro3">
+      This website is a place to improve my frontend skills, share my projects,
+      and explore new ideas that combine my interests with technology.
+    </p>
+    <p class="text-2xl mt-6 mb-6" id="intro4">
+      Outside of work I enjoy biking, caring for house plants and aquariums,
+      playing video games, and working with personal tech projects. Recently I
+      started a 24/7 livestream of my aquarium using a Raspberry Pi Zero 2 W.
+    </p>
+  </section>
 
-    <main class="max-w-4xl mx-auto p-6 text-strongblue nerd-font">
-      <h1 class="text-5xl mb-5 text-black font-bold">~home</h1>
-      <p class="text-7xl mb-10">
-        Hello, I'm Anthony Davila and this is my personal website.
-      </p>
-      <p class="text-3xl">Write more here</p>
-    </main>
+  <script>
+    function runAnimation() {
+      const elements = [
+        document.getElementById("intro1"),
+        document.getElementById("intro2"),
+        document.getElementById("intro3"),
+        document.getElementById("intro4"),
+      ];
 
-    <footer>
-      <Footer />
-    </footer>
-  </body>
-</html>
+      elements.forEach((el, index) => {
+        if (el) {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(20px)";
+          setTimeout(() => {
+            el.style.transition =
+              "opacity 0.6s ease-out, transform 0.6s ease-out";
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
+          }, index * 500); // Stagger animations by 300ms
+        }
+      });
+    }
+
+    runAnimation();
+
+    document.addEventListener("astro:after-swap", runAnimation);
+  </script>
+</BaseLayout>

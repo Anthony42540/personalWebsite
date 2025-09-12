@@ -1,30 +1,10 @@
 ---
 import "../styles/global.css";
-import Navbar from "../components/navbar.astro";
-import Footer from "../components/footer.astro";
+import BaseLayout from "../components/BaseLayout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="../styles/global.css" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Ant</title>
-  </head>
-  <body class="bg-lightblue">
-    <header>
-      <Navbar />
-    </header>
-
-    <main class="max-w-4xl mx-auto p-6 text-strongblue nerd-font">
-      <h1 class="text-5xl mb-5 text-black font-bold">/contact</h1>
-      <p class="text-7xl">Contact page.</p>
-    </main>
-
-    <footer>
-      <Footer />
-    </footer>
-  </body>
-</html>
+<BaseLayout title="/contact">
+  <h1 class="text-5xl mb-5 text-black font-bold">/contact</h1>
+  <p class="text-3xl">Email - anthonydavila90@gmail.com</p>
+  <p class="text-3xl">Phone - +1 305-250-8831</p>
+</BaseLayout>

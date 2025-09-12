@@ -1,32 +1,16 @@
 ---
 import "../styles/global.css";
-import Navbar from "../components/navbar.astro";
-import Footer from "../components/footer.astro";
+import BaseLayout from "../components/BaseLayout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="../styles/global.css" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Ant</title>
-  </head>
-  <body class="bg-lightblue">
-    <header>
-      <header>
-        <Navbar />
-      </header>
-    </header>
+<BaseLayout title="/projects">
+  <section class="mt-6 mb-6">
+    <h1 class="text-5xl text-black font-bold">/projects</h1>
+  </section>
 
-    <main class="max-w-4xl mx-auto p-6 text-strongblue nerd-font">
-      <h1 class="text-5xl mb-5 text-black font-bold">/projects</h1>
-      <p class="text-7xl">Projects page.</p>
-    </main>
-
-    <footer>
-      <Footer />
-    </footer>
-  </body>
-</html>
+  <section class="mt-6 mb-6 flex justify-center gap-10">
+    <div class="border-strongblue border-2 rounded-lg p-30">WIP</div>
+    <div class="border-strongblue border-2 rounded-lg p-30">WIP</div>
+    <div class="border-strongblue border-2 rounded-lg p-30">WIP</div>
+  </section>
+</BaseLayout>

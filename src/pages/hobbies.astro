@@ -1,32 +1,59 @@
 ---
 import "../styles/global.css";
-import Navbar from "../components/navbar.astro";
-import Footer from "../components/footer.astro";
+import BaseLayout from "../components/BaseLayout.astro";
+import NowPlaying from "../components/NowPlaying.svelte";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="../styles/global.css" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Ant</title>
-  </head>
-  <body class="bg-lightblue">
-    <header>
-      <header>
-        <Navbar />
-      </header>
-    </header>
+<BaseLayout title="/hobbies">
+  <section class="mt-6 mb-6" id="title">
+    <h1 class="text-5xl text-black font-bold">/hobbies</h1>
+  </section>
 
-    <main class="max-w-4xl mx-auto p-6 text-strongblue nerd-font">
-      <h1 class="text-5xl mb-5 text-black font-bold">/hobbies</h1>
-      <p class="text-7xl">Hobbies page.</p>
-    </main>
+  <section class="mt-6 mb-6 flex flex-col gap-10">
+    <div
+      class="border-strongblue border-2 rounded-lg p-2 h-60 flex justify-center"
+      id="hobby1"
+    >
+      WIP
+    </div>
+    <div
+      class="border-strongblue border-2 rounded-lg p-2 h-60 flex justify-center"
+      id="hobby2"
+    >
+      <iframe src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div
+      class="group border-strongblue border-2 rounded-lg p-4 flex flex-row hover:bg-strongblue"
+      id="hobby3"
+    >
+      <NowPlaying client:idle />
+    </div>
+  </section>
 
-    <footer>
-      <Footer />
-    </footer>
-  </body>
-</html>
+  <script is:inline>
+    function runAnimation() {
+      const elements = [
+        document.getElementById("hobby1"),
+        document.getElementById("hobby2"),
+        document.getElementById("hobby3"),
+      ];
+
+      elements.forEach((el, index) => {
+        if (el) {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(20px)";
+          setTimeout(() => {
+            el.style.transition =
+              "opacity 0.6s ease-out, transform 0.6s ease-out, background-color 0.150s ease";
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
+          }, index * 500);
+        }
+      });
+    }
+
+    runAnimation();
+
+    document.addEventListener("astro:after-swap", runAnimation);
+  </script>
+</BaseLayout>

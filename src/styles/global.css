@@ -1,19 +1,19 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
-  --color-lightblue: #EAF6FF;
-  --color-strongblue: #1E90FF;
-  --color-medblue: #63B8FF;
+  --color-lightblue: #eaf6ff;
+  --color-strongblue: #1e90ff;
+  --color-medblue: #63b8ff;
 }
 
 @font-face {
-  font-family: '3270';
-  src: url('/fonts/3270NerdFontMono-Regular.ttf') format('truetype');
+  font-family: "3270";
+  src: url("/fonts/3270NerdFontMono-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 .nerd-font {
-    font-family: '3270', monospace;
+  font-family: "3270", monospace;
 }
