@@ -9,7 +9,12 @@ export const GET: APIRoute = async () => {
 		return new Response(
 			JSON.stringify({
 				isPlaying: false
-			})
+			}),
+			{
+				headers: {
+					"Content-Type":	"application/json"
+				}
+			}
 		);
 	}
 
@@ -33,6 +38,11 @@ export const GET: APIRoute = async () => {
 			songUrl,
 			duration,
 			progress
-		})
+		}),
+		{
+			headers: {
+				"Content-Type":	"application/json"
+			}
+		}
 	);
 };

@@ -11,17 +11,24 @@ import NowPlaying from "../components/NowPlaying.svelte";
 
   <section class="mt-6 mb-6 flex flex-col gap-10">
     <div
-      class="border-strongblue border-2 rounded-lg p-2 h-60 flex justify-center"
+      class="group border-strongblue border-2 rounded-lg p-4 flex flex-row hover:bg-strongblue"
       id="hobby1"
+    >
+      <iframe
+        class="w-full aspect-video rounded-lg shadow-md transition-opacity duration-150 opacity-100 group-hover:opacity-0 group-hover:pointer-events-none"
+        src="https://www.youtube.com/embed/_H662Ver2ls?si=27lTkQveq7zaHj3z&autoplay=1&mute=1&rel=0"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
+    </div>
+    <div
+      class="group border-strongblue border-2 rounded-lg p-4 flex flex-row hover:bg-strongblue"
+      id="hobby2"
     >
       WIP
     </div>
-    <div
-      class="border-strongblue border-2 rounded-lg p-2 h-60 flex justify-center"
-      id="hobby2"
-    >
-      <iframe src="" frameborder="0" allowfullscreen></iframe>
-    </div>
+
     <div
       class="group border-strongblue border-2 rounded-lg p-4 flex flex-row hover:bg-strongblue"
       id="hobby3"
@@ -29,31 +36,31 @@ import NowPlaying from "../components/NowPlaying.svelte";
       <NowPlaying client:idle />
     </div>
   </section>
-
-  <script is:inline>
-    function runAnimation() {
-      const elements = [
-        document.getElementById("hobby1"),
-        document.getElementById("hobby2"),
-        document.getElementById("hobby3"),
-      ];
-
-      elements.forEach((el, index) => {
-        if (el) {
-          el.style.opacity = "0";
-          el.style.transform = "translateY(20px)";
-          setTimeout(() => {
-            el.style.transition =
-              "opacity 0.6s ease-out, transform 0.6s ease-out, background-color 0.150s ease";
-            el.style.opacity = "1";
-            el.style.transform = "translateY(0)";
-          }, index * 500);
-        }
-      });
-    }
-
-    runAnimation();
-
-    document.addEventListener("astro:after-swap", runAnimation);
-  </script>
 </BaseLayout>
+
+<script is:inline>
+  function runAnimation() {
+    const elements = [
+      document.getElementById("hobby1"),
+      document.getElementById("hobby2"),
+      document.getElementById("hobby3"),
+    ];
+
+    elements.forEach((el, index) => {
+      if (el) {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(20px)";
+        setTimeout(() => {
+          el.style.transition =
+            "opacity 0.6s ease-out, transform 0.6s ease-out, background-color 0.150s ease";
+          el.style.opacity = "1";
+          el.style.transform = "translateY(0)";
+        }, index * 500);
+      }
+    });
+  }
+
+  runAnimation();
+
+  document.addEventListener("astro:after-swap", runAnimation);
+</script>

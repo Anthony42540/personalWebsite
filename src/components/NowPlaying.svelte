@@ -40,7 +40,6 @@
         const cached = localStorage.getItem("playerCache");
         player = cached ? JSON.parse(cached) : { isPlaying: false };
       }
-      console.log("player", player);
     } catch (err) {
       const cached = localStorage.getItem("playerCache");
       player = cached ? JSON.parse(cached) : { isPlaying: false };
@@ -57,7 +56,7 @@
       }
     }
     fetchNowPlaying();
-    interval = setInterval(fetchNowPlaying, 1000);
+    interval = setInterval(fetchNowPlaying, 5000);
     return () => clearInterval(interval);
   });
   $: statusText = player.isPlaying ? "Now playing -" : "Last played -";
