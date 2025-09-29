@@ -24,12 +24,10 @@
       try {
         data = await res.json();
       } catch (jsonErr) {
-        // If JSON parsing fails, fallback to cache
         const cached = localStorage.getItem("playerCache");
         player = cached ? JSON.parse(cached) : { isPlaying: false };
         return;
       }
-      // Only cache if valid song info exists
       if (
         data &&
         (data.title || data.songUrl || data.artist || data.albumImageUrl)
@@ -62,12 +60,12 @@
   $: statusText = player.isPlaying ? "Now playing -" : "Last played -";
 </script>
 
-<div class="flex flex-row items-center gap-4 text-left text-2xl w-full h-full">
+<div class="flex flex-row items-center gap-4 text-left w-full h-full">
   {#if player.songUrl}
     <a href={player.songUrl} target="_blank" rel="noopener noreferrer">
       <img
         src={player.albumImageUrl}
-        alt={player.album}
+        alt='{player.album}'
         class="w-81 h-auto object-cover rounded-lg shadow-md transition-transform duration-200 hover:scale-105"
       />
     </a>

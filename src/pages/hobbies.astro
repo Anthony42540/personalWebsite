@@ -9,9 +9,9 @@ import NowPlaying from "../components/NowPlaying.svelte";
     <h1 class="text-5xl text-black font-bold">/hobbies</h1>
   </section>
 
-  <section class="mt-6 mb-6 flex flex-col gap-10">
+  <section class="mt-6 mb-6 flex flex-col gap-10 text-2xl">
     <div
-      class="group border-strongblue border-2 rounded-lg p-4 flex flex-row hover:bg-strongblue"
+      class="group border-strongblue border-2 rounded-lg p-4 flex flex-row hover:bg-strongblue items-center"
       id="hobby1"
     >
       <iframe
@@ -21,12 +21,77 @@ import NowPlaying from "../components/NowPlaying.svelte";
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen></iframe>
+      <div
+        class="absolute inset-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-150 overflow-auto"
+      >
+        <h1 class="font-semibold">/hobbies/aquariums</h1>
+        <br />
+        <p>
+          This is my 55 gallon fish tank in my childhood home's living room.
+          It's been running for about 7 years now and has gone through several
+          iterations of fish and aquascaping. I enjoy the research that
+          community tanks require and the beauty that you see with the finished
+          result. Currently there are 6 neon dwarf rainbowfish, 4 Venezuelan
+          corydoras, 2 German blue rams, and 20 rummynose tetras.
+        </p>
+        <br />
+        <p>
+          This livestream runs 24/7 on a Raspberry Pi Zero 2 W with a Raspberry
+          Pi Camera Module 3.
+        </p>
+      </div>
     </div>
+
     <div
-      class="group border-strongblue border-2 rounded-lg p-4 flex flex-row hover:bg-strongblue"
+      class="group relative border-strongblue border-2 rounded-lg gap-5 p-5 flex flex-col hover:bg-strongblue items-center overflow-hidden"
       id="hobby2"
     >
-      WIP
+      <iframe
+        class="rounded-lg opacity-100 group-hover:opacity-0 transition-opacity duration-150 shadow-md w-full"
+        height="160"
+        frameborder="0"
+        allowtransparency="true"
+        scrolling="no"
+        src="https://www.strava.com/athletes/26637430/activity-summary/48fe8c3af0b45ca094837dea098009f24e3385ea"
+      ></iframe>
+      <a
+        target="_parent"
+        href="https://www.strava.com/athletes/26637430?utm_campaign=athlete_share&utm_content=26637430&utm_medium=widget&utm_source=localhost"
+        class="absolute bottom-6 right-6 primary z-10"
+      >
+        View all of Anthony's activity »
+      </a>
+      <div
+        class="absolute inset-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-150 overflow-auto"
+      >
+        <h1 class="font-semibold">/hobbies/biking</h1>
+        <p>
+          I enjoy biking around city and nature trails. I work on my bike myself
+          for fun and to keep it in good shape. Whenever I'm in a new city I try
+          to find new bike shops to visit.
+        </p>
+      </div>
+
+      <style>
+        .group a.primary {
+          display: inline-block;
+          height: auto;
+          font-size: 0.8rem;
+          line-height: 1.2rem;
+          font-weight: 600;
+          background-color: #fc5200;
+          color: #fff;
+          text-decoration: none;
+          padding: 5px 12px;
+          border: 1px solid transparent;
+          border-radius: 4px;
+          white-space: nowrap;
+          transition: background-color 0.15s ease;
+        }
+        .group a.primary:hover {
+          background-color: #e64b00;
+        }
+      </style>
     </div>
 
     <div
@@ -34,6 +99,94 @@ import NowPlaying from "../components/NowPlaying.svelte";
       id="hobby3"
     >
       <NowPlaying client:idle />
+    </div>
+
+    <div
+      class="group border-strongblue border-2 rounded-lg p-4 flex flex-col"
+      id="hobby4"
+    >
+      <div class="rounded-lg flex flex-wrap justify-center gap-2">
+        <div class="relative">
+          <img
+            class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
+            src="butterwort.jpeg"
+          />
+          <div
+            class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
+          >
+            <h1 class="font-semibold">/hobbies/plants</h1>
+            <p>Butterwort Pinguicula</p>
+          </div>
+        </div>
+
+        <div class="relative">
+          <img
+            class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
+            src="display.jpeg"
+          />
+          <div
+            class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
+          >
+            <h1 class="font-semibold">/hobbies/plants</h1>
+            <p>
+              Top to bottom: 1. Pothos/succulents, 2. florida ghost/begonia, 3.
+              chinese money plant/pitcher plant/spider plant
+            </p>
+          </div>
+        </div>
+
+        <div class="relative">
+          <img
+            class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
+            src="floridagreen.jpeg"
+          />
+          <div
+            class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
+          >
+            <h1 class="font-semibold">/hobbies/plants</h1>
+            <p>Philodendron 'Florida Green'</p>
+          </div>
+        </div>
+
+        <div class="relative">
+          <img
+            class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
+            src="greenhouse.jpeg"
+          />
+          <div
+            class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
+          >
+            <h1 class="font-semibold">/hobbies/plants</h1>
+            <p>Succulents and pitcher plant (Nepenthes Ventrata).</p>
+          </div>
+        </div>
+
+        <div class="relative">
+          <img
+            class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
+            src="pitcherplant.jpeg"
+          />
+          <div
+            class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
+          >
+            <h1 class="font-semibold">/hobbies/plants</h1>
+            <p>Pitcher plant (Nepenthes Ventrata)</p>
+          </div>
+        </div>
+
+        <div class="relative">
+          <img
+            class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
+            src="syngonium.jpeg"
+          />
+          <div
+            class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
+          >
+            <h1 class="font-semibold">/hobbies/plants</h1>
+            <p>Syngonium Albo</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </BaseLayout>
@@ -44,6 +197,7 @@ import NowPlaying from "../components/NowPlaying.svelte";
       document.getElementById("hobby1"),
       document.getElementById("hobby2"),
       document.getElementById("hobby3"),
+      document.getElementById("hobby4"),
     ];
 
     elements.forEach((el, index) => {
@@ -61,6 +215,5 @@ import NowPlaying from "../components/NowPlaying.svelte";
   }
 
   runAnimation();
-
   document.addEventListener("astro:after-swap", runAnimation);
 </script>
