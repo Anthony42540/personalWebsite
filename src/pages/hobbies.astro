@@ -201,15 +201,15 @@ import NowPlaying from "../components/NowPlaying.svelte";
       >
         <h1 class="font-semibold">/hobbies/coffee</h1>
         <p>
-          Coming from a Cuban family that drinks coffee twice a day, I have
-          drunk it a lot but only started making in the last few years. I have a
-          ton of different coffee brewers at this point like a moka pot or
-          cafetera, chemex, and most recently a manual lever espresso machine. I
-          like drinking Cuban traditional coffee with whipped sugar and moka pot
-          coffee, iced lattes with flavoring or without, and cortados. I usually
-          get my beans from different local roasters. Some of my favorites are
-          Resident in Gainesville and Onyx (which isn't local but it was really
-          good).
+          I started making coffee myself a few years ago, but my Cuban family's
+          habit of drinking it twice daily automatically made me a coffee
+          drinker. I have a ton of different coffee brewers at this point like a
+          moka pot or cafetera, chemex, and most recently a manual lever
+          espresso machine. I like drinking Cuban traditional coffee with
+          whipped sugar and moka pot coffee, iced lattes with flavoring or
+          without, and cortados. I usually get my beans from different local
+          roasters. Some of my favorites are Resident in Gainesville and Onyx
+          (which isn't local but it was really good).
         </p>
       </div>
     </div>
@@ -230,7 +230,7 @@ import NowPlaying from "../components/NowPlaying.svelte";
         el.style.transform = "translateY(20px)";
         el.getBoundingClientRect();
         el.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
-        el.style.transitionDelay = `${index * 600}ms`;
+        el.style.transitionDelay = `200ms`;
         requestAnimationFrame(() => {
           el.style.opacity = "1";
           el.style.transform = "translateY(0)";
