@@ -61,7 +61,7 @@
     ? "Now playing -"
     : player.title || player.artist || player.album
       ? "Last played -"
-      : "I'm not playing anything!";
+      : "I'm not playing anything on Spotify right now!";
 </script>
 
 <div class="flex flex-row items-center gap-4 text-left w-full h-full">
@@ -99,12 +99,14 @@
     <div
       class="absolute inset-0 flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-150"
     >
-      {#if player.albumImageUrl}
+      {#if false}
         <h1 class="text-white font-semibold">/hobbies/music</h1>
         <p class="text-white whitespace-normal break-words w-full">
           I love listening to different genres of music like rap, jazz, and
           funk. I also play the tenor saxophone.
         </p>
+      {:else}
+        <p class="text-white whitespace-normal break-words w-full">Nothing here either!</p>
       {/if}
     </div>
   </div>
