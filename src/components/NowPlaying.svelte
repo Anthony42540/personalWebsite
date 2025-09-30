@@ -57,7 +57,11 @@
     interval = setInterval(fetchNowPlaying, 5000);
     return () => clearInterval(interval);
   });
-  $: statusText = player.isPlaying ? "Now playing -" : "Last played -";
+  $: statusText = player.isPlaying
+    ? "Now playing -"
+    : player.title || player.artist || player.album
+      ? "Last played -"
+      : "I'm not playing anything!";
 </script>
 
 <div class="flex flex-row items-center gap-4 text-left w-full h-full">
@@ -100,10 +104,6 @@
         <p class="text-white whitespace-normal break-words w-full">
           I love listening to different genres of music like rap, jazz, and
           funk. I also play the tenor saxophone.
-        </p>
-      {:else}
-        <p class="text-white whitespace-normal break-words w-full">
-          I am not playing anything right now!
         </p>
       {/if}
     </div>
