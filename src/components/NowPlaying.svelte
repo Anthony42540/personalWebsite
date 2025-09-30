@@ -65,7 +65,7 @@
     <a href={player.songUrl} target="_blank" rel="noopener noreferrer">
       <img
         src={player.albumImageUrl}
-        alt='{player.album}'
+        alt={player.album}
         class="w-81 h-auto object-cover rounded-lg shadow-md transition-transform duration-200 hover:scale-105"
       />
     </a>
@@ -96,10 +96,16 @@
       class="absolute inset-0 flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-150"
     >
       <h1 class="text-white font-semibold">/hobbies/music</h1>
-      <p class="text-white whitespace-normal break-words w-full">
-        I love listening to different genres of music like rap, jazz, and funk.
-        I also play the tenor saxophone.
-      </p>
+      {#if player.albumImageUrl}
+        <p class="text-white whitespace-normal break-words w-full">
+          I love listening to different genres of music like rap, jazz, and
+          funk. I also play the tenor saxophone.
+        </p>
+      {:else}
+        <p class="text-white whitespace-normal break-words w-full">
+          I am not playing anything right now!
+        </p>
+      {/if}
     </div>
   </div>
 </div>
