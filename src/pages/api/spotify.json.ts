@@ -1,48 +1,47 @@
 import type { APIRoute } from 'astro';
 import { getNowPlaying } from '../../lib/spotify.ts';
 import type { SpotifyPlayerResponse } from '../../lib/types';
+import redis from '../../lib/redis.ts';
 
 export const GET: APIRoute = async () => {
-	const response = await getNowPlaying();
+  try {
+    const response = await getNowPlaying();
 
-	if (response.status === 204 || response.status > 400) {
-		return new Response(
-			JSON.stringify({
-				isPlaying: false
-			}),
-			{
-				headers: {
-					"Content-Type":	"application/json"
-				}
-			}
-		);
-	}
+    if (response.status === 204 || response.status > 400) {
+      const lastTrackRaw = await redis.get('last_track');
+      const lastTrack = lastTrackRaw ? JSON.parse(lastTrackRaw) : { isPlaying: false };
 
-	const player = (await response.json()) as SpotifyPlayerResponse;
-	const isPlaying = player.is_playing;
-	const title = player.item.name;
-	const artist = player.item.artists.map((_artist) => _artist.name).join(', ');
-	const album = player.item.album.name;
-	const albumImageUrl = player.item.album.images[0].url;
-	const songUrl = player.item.external_urls.spotify;
-	const duration = player.item.duration_ms;
-	const progress = player.progress_ms;
+      return new Response(JSON.stringify(lastTrack), {
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
 
-	return new Response(
-		JSON.stringify({
-			isPlaying,
-			title,
-			artist,
-			album,
-			albumImageUrl,
-			songUrl,
-			duration,
-			progress
-		}),
-		{
-			headers: {
-				"Content-Type":	"application/json"
-			}
-		}
-	);
+    const player = (await response.json()) as SpotifyPlayerResponse;
+
+    const track = {
+      isPlaying: player.is_playing,
+      title: player.item.name,
+      artist: player.item.artists.map(a => a.name).join(', '),
+      album: player.item.album.name,
+      albumImageUrl: player.item.album.images[0]?.url,
+      songUrl: player.item.external_urls.spotify,
+      duration: player.item.duration_ms,
+      progress: player.progress_ms,
+    };
+
+    await redis.set('last_track', JSON.stringify(track));
+
+    return new Response(JSON.stringify(track), {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  } catch (err) {
+    console.error('Spotify API error:', err);
+
+    const lastTrackRaw = await redis.get('last_track');
+    const lastTrack = lastTrackRaw ? JSON.parse(lastTrackRaw) : { isPlaying: false };
+
+    return new Response(JSON.stringify(lastTrack), {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
 };
