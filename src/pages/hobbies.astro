@@ -2,6 +2,13 @@
 import "../styles/global.css";
 import BaseLayout from "../components/BaseLayout.astro";
 import NowPlaying from "../components/NowPlaying.svelte";
+import { Image } from "astro:assets";
+import butterwort from "../../public/butterwort.webp"
+import display from "../../public/display.webp"
+import floridagreen from "../../public/floridagreen.webp"
+import greenhouse from "../../public/greenhouse.webp"
+import pitcherplant from "../../public/pitcherplant.webp"
+import syngonium from "../../public/syngonium.webp"
 ---
 
 <BaseLayout title="/hobbies">
@@ -107,10 +114,11 @@ import NowPlaying from "../components/NowPlaying.svelte";
     >
       <div class="rounded-lg flex flex-wrap justify-center gap-2">
         <div class="relative">
-          <img
+          <Image
             class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
-            src="butterwort.webp"
+            src={butterwort}
             loading="eager"
+            alt = "Image of butterwort"
           />
           <div
             class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
@@ -121,10 +129,11 @@ import NowPlaying from "../components/NowPlaying.svelte";
         </div>
 
         <div class="relative">
-          <img
+          <Image
             class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
-            src="display.webp"
+            src={display}
             loading="eager"
+            alt="Image of plant display"
           />
           <div
             class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
@@ -138,10 +147,11 @@ import NowPlaying from "../components/NowPlaying.svelte";
         </div>
 
         <div class="relative">
-          <img
+          <Image
             class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
-            src="floridagreen.webp"
+            src={floridagreen}
             loading="eager"
+            alt="Image of florida green plant"
           />
           <div
             class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
@@ -152,10 +162,11 @@ import NowPlaying from "../components/NowPlaying.svelte";
         </div>
 
         <div class="relative">
-          <img
+          <Image
             class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
-            src="greenhouse.webp"
+            src={greenhouse}
             loading="eager"
+            alt="Image of greenhouse"
           />
           <div
             class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
@@ -166,10 +177,11 @@ import NowPlaying from "../components/NowPlaying.svelte";
         </div>
 
         <div class="relative">
-          <img
+          <Image
             class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
-            src="pitcherplant.webp"
+            src={pitcherplant}
             loading="eager"
+            alt="Image of pitcher plant"
           />
           <div
             class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
@@ -180,10 +192,11 @@ import NowPlaying from "../components/NowPlaying.svelte";
         </div>
 
         <div class="relative">
-          <img
+          <Image
             class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
-            src="syngonium.webp"
+            src={syngonium}
             loading="eager"
+            alt="Image of syngonium"
           />
           <div
             class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
@@ -239,7 +252,7 @@ import NowPlaying from "../components/NowPlaying.svelte";
         el.style.transform = "translateY(20px)";
         el.getBoundingClientRect();
         el.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
-        el.style.transitionDelay = `200ms`;
+        el.style.transitionDelay = `500ms`;
         requestAnimationFrame(() => {
           el.style.opacity = "1";
           el.style.transform = "translateY(0)";
