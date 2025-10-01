@@ -71,6 +71,7 @@
         src={player.albumImageUrl}
         alt={player.album}
         class="w-81 h-auto object-cover rounded-lg shadow-md transition-transform duration-200 hover:scale-105"
+        loading="eager"
       />
     </a>
   {/if}

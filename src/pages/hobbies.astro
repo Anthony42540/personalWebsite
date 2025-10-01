@@ -110,6 +110,7 @@ import NowPlaying from "../components/NowPlaying.svelte";
           <img
             class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
             src="butterwort.jpeg"
+            loading="eager"
           />
           <div
             class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
@@ -123,6 +124,7 @@ import NowPlaying from "../components/NowPlaying.svelte";
           <img
             class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
             src="display.jpeg"
+            loading="eager"
           />
           <div
             class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
@@ -139,6 +141,7 @@ import NowPlaying from "../components/NowPlaying.svelte";
           <img
             class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
             src="floridagreen.jpeg"
+            loading="eager"
           />
           <div
             class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
@@ -152,6 +155,7 @@ import NowPlaying from "../components/NowPlaying.svelte";
           <img
             class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
             src="greenhouse.jpeg"
+            loading="eager"
           />
           <div
             class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
@@ -165,6 +169,7 @@ import NowPlaying from "../components/NowPlaying.svelte";
           <img
             class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
             src="pitcherplant.jpeg"
+            loading="eager"
           />
           <div
             class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
@@ -178,6 +183,7 @@ import NowPlaying from "../components/NowPlaying.svelte";
           <img
             class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
             src="syngonium.jpeg"
+            loading="eager"
           />
           <div
             class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
@@ -193,9 +199,12 @@ import NowPlaying from "../components/NowPlaying.svelte";
       class="group border-strongblue border-2 rounded-lg p-4 flex flex-row hover:bg-strongblue gap-4"
       id="hobby5"
     >
-      <video class="w-1/2 rounded-lg shadow-md" autoplay muted loop>
-        <source src="coffee.mp4" type="video/mp4" />
-      </video>
+      <iframe
+        src="https://youtube.com/embed/tQmb6uMJrDI?si=nQAELwCcdJgEdYNQ&autoplay=1&mute=1&rel=0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        class="rounded-lg shadow-md"
+      >
+      </iframe>
       <div
         class="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
       >
