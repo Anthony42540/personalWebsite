@@ -13,6 +13,7 @@ import BaseLayout from "../components/BaseLayout.astro";
       href="https://github.com/Anthony42540/GatorFieldNotebook"
       target="_blank"
       id="project1"
+      class="project-card"
     >
       <img
         src="https://github-readme-stats.vercel.app/api/pin/?username=Anthony42540&repo=GatorFieldNotebook"
@@ -25,6 +26,7 @@ import BaseLayout from "../components/BaseLayout.astro";
       href="https://github.com/Anthony42540/GatorGather"
       target="_blank"
       id="project2"
+      class="project-card"
     >
       <img
         src="https://github-readme-stats.vercel.app/api/pin/?username=Anthony42540&repo=GatorGather"
@@ -36,6 +38,7 @@ import BaseLayout from "../components/BaseLayout.astro";
       href="https://github.com/Anthony42540/RecordRackDSA"
       target="_blank"
       id="project3"
+      class="project-card"
     >
       <img
         src="https://github-readme-stats.vercel.app/api/pin/?username=Anthony42540&repo=RecordRackDSA"
@@ -47,6 +50,7 @@ import BaseLayout from "../components/BaseLayout.astro";
       href="https://github.com/Anthony42540/personalWebsite"
       target="_blank"
       id="project4"
+      class="project-card"
     >
       <img
         src="https://github-readme-stats.vercel.app/api/pin/?username=Anthony42540&repo=personalWebsite"
@@ -70,8 +74,6 @@ import BaseLayout from "../components/BaseLayout.astro";
           el.style.opacity = "0";
           el.style.transform = "translateY(20px)";
           setTimeout(() => {
-            el.style.transition =
-              "opacity 0.6s ease-out, transform 0.6s ease-out";
             el.style.opacity = "1";
             el.style.transform = "translateY(0)";
           }, index * 500);
