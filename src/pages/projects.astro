@@ -12,8 +12,6 @@ import BaseLayout from "../components/BaseLayout.astro";
     <a
       href="https://github.com/Anthony42540/GatorFieldNotebook"
       target="_blank"
-      id="project1"
-      class="project-card"
     >
       <img
         src="https://github-readme-stats.vercel.app/api/pin/?username=Anthony42540&repo=GatorFieldNotebook"
@@ -22,36 +20,21 @@ import BaseLayout from "../components/BaseLayout.astro";
       />
     </a>
 
-    <a
-      href="https://github.com/Anthony42540/GatorGather"
-      target="_blank"
-      id="project2"
-      class="project-card"
-    >
+    <a href="https://github.com/Anthony42540/GatorGather" target="_blank">
       <img
         src="https://github-readme-stats.vercel.app/api/pin/?username=Anthony42540&repo=GatorGather"
         alt="GatorGather GitHub Repo"
         class="w-full object-cover rounded-2xl shadow-lg hover:scale-105 transition-transform overflow-hidden"
       />
     </a>
-    <a
-      href="https://github.com/Anthony42540/RecordRackDSA"
-      target="_blank"
-      id="project3"
-      class="project-card"
-    >
+    <a href="https://github.com/Anthony42540/RecordRackDSA" target="_blank">
       <img
         src="https://github-readme-stats.vercel.app/api/pin/?username=Anthony42540&repo=RecordRackDSA"
         alt="RecordRackDSA GitHub Repo"
         class="w-full object-cover rounded-2xl shadow-lg hover:scale-105 transition-transform overflow-hidden"
       />
     </a>
-    <a
-      href="https://github.com/Anthony42540/personalWebsite"
-      target="_blank"
-      id="project4"
-      class="project-card"
-    >
+    <a href="https://github.com/Anthony42540/personalWebsite" target="_blank">
       <img
         src="https://github-readme-stats.vercel.app/api/pin/?username=Anthony42540&repo=personalWebsite"
         alt="personalWebsite GitHub Repo"
@@ -59,30 +42,4 @@ import BaseLayout from "../components/BaseLayout.astro";
       />
     </a>
   </section>
-  
-  <script>
-    function runAnimation() {
-      const elements = [
-        document.getElementById("project1"),
-        document.getElementById("project2"),
-        document.getElementById("project3"),
-        document.getElementById("project4"),
-      ];
-
-      elements.forEach((el, index) => {
-        if (el) {
-          el.style.opacity = "0";
-          el.style.transform = "translateY(20px)";
-          setTimeout(() => {
-            el.style.opacity = "1";
-            el.style.transform = "translateY(0)";
-          }, index * 500);
-        }
-      });
-    }
-
-    runAnimation();
-
-    document.addEventListener("astro:after-swap", runAnimation);
-  </script>
 </BaseLayout>
