@@ -2,7 +2,6 @@
 import Navbar from "./navbar.astro";
 import Footer from "./footer.astro";
 import { ViewTransitions } from "astro:transitions";
-import  SpeedInsights  from "@vercel/speed-insights/astro"
 const { title } = Astro.props;
 ---
 <html lang="en">
@@ -21,7 +20,6 @@ const { title } = Astro.props;
 
     <main class="max-w-4xl mx-auto p-6 text-strongblue nerd-font">
       <slot />
-      <SpeedInsights/>
     </main>
 
     <footer>
