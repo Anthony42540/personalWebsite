@@ -3,12 +3,13 @@ import "../styles/global.css";
 import BaseLayout from "../components/BaseLayout.astro";
 import NowPlaying from "../components/NowPlaying.svelte";
 import { Image } from "astro:assets";
-import butterwort from "../../public/butterwort.webp"
-import display from "../../public/display.webp"
-import floridagreen from "../../public/floridagreen.webp"
-import greenhouse from "../../public/greenhouse.webp"
-import pitcherplant from "../../public/pitcherplant.webp"
-import syngonium from "../../public/syngonium.webp"
+import butterwort from "../../public/butterwort.webp";
+import display from "../../public/display.webp";
+import floridagreen from "../../public/floridagreen.webp";
+import greenhouse from "../../public/greenhouse.webp";
+import pitcherplant from "../../public/pitcherplant.webp";
+import syngonium from "../../public/syngonium.webp";
+import Hobbycard from "../components/hobbycard.astro";
 ---
 
 <BaseLayout title="/hobbies">
@@ -16,11 +17,8 @@ import syngonium from "../../public/syngonium.webp"
     <h1 class="text-5xl text-black font-bold">/hobbies</h1>
   </section>
 
-  <section class="mt-6 mb-6 flex flex-col gap-10 text-2xl">
-    <div
-      class="group border-strongblue border-2 rounded-lg p-4 flex flex-row hover:bg-strongblue items-center"
-      id="hobby1"
-    >
+  <section class="mt-6 mb-6 flex flex-col gap-4 text-2xl">
+    <Hobbycard id="hobby1" extraClasses="flex flex-row items-center hover:bg-strongblue">
       <iframe
         class="w-full aspect-video rounded-lg shadow-md transition-opacity duration-300 opacity-100 group-hover:opacity-0 group-hover:pointer-events-none"
         src="https://www.youtube.com/embed/_H662Ver2ls?si=27lTkQveq7zaHj3z&autoplay=1&mute=1&rel=0"
@@ -47,11 +45,11 @@ import syngonium from "../../public/syngonium.webp"
           Pi Camera Module 3.
         </p>
       </div>
-    </div>
+    </Hobbycard>
 
-    <div
-      class="group relative border-strongblue border-2 rounded-lg gap-5 p-5 flex flex-col hover:bg-strongblue items-center overflow-hidden"
+    <Hobbycard
       id="hobby2"
+      extraClasses="flex flex-col items-center overflow-hidden hover:bg-strongblue"
     >
       <iframe
         class="rounded-lg opacity-100 group-hover:opacity-0 transition-opacity duration-300 shadow-md w-full"
@@ -64,7 +62,7 @@ import syngonium from "../../public/syngonium.webp"
       <a
         target="_parent"
         href="https://www.strava.com/athletes/26637430?utm_campaign=athlete_share&utm_content=26637430&utm_medium=widget&utm_source=localhost"
-        class="absolute bottom-6 right-6 primary z-10"
+        class="absolute bottom-5 right-5 primary z-10"
       >
         View all of Anthony's activity »
       </a>
@@ -78,47 +76,20 @@ import syngonium from "../../public/syngonium.webp"
           to find new bike shops to visit.
         </p>
       </div>
+    </Hobbycard>
 
-      <style>
-        .group a.primary {
-          display: inline-block;
-          height: auto;
-          font-size: 0.8rem;
-          line-height: 1.2rem;
-          font-weight: 600;
-          background-color: #fc5200;
-          color: #fff;
-          text-decoration: none;
-          padding: 5px 12px;
-          border: 1px solid transparent;
-          border-radius: 4px;
-          white-space: nowrap;
-          transition: background-color 0.15s ease;
-        }
-        .group a.primary:hover {
-          background-color: #e64b00;
-        }
-      </style>
-    </div>
-
-    <div
-      class="group border-strongblue border-2 rounded-lg p-4 flex flex-row hover:bg-strongblue"
-      id="hobby3"
-    >
+    <Hobbycard id="hobby3" extraClasses="flex flex-row hover:bg-strongblue">
       <NowPlaying client:idle />
-    </div>
+    </Hobbycard>
 
-    <div
-      class="group border-strongblue border-2 rounded-lg p-4 flex flex-col"
-      id="hobby4"
-    >
+    <Hobbycard id="hobby4" extraClasses="flex flex-col">
       <div class="rounded-lg flex flex-wrap justify-center gap-2">
         <div class="relative">
           <Image
             class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
             src={butterwort}
             loading="eager"
-            alt = "Image of butterwort"
+            alt="Image of butterwort"
           />
           <div
             class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
@@ -206,12 +177,9 @@ import syngonium from "../../public/syngonium.webp"
           </div>
         </div>
       </div>
-    </div>
+    </Hobbycard>
 
-    <div
-      class="group border-strongblue border-2 rounded-lg p-4 flex flex-row hover:bg-strongblue gap-4"
-      id="hobby5"
-    >
+    <Hobbycard id="hobby5" extraClasses="flex flex-row gap-4 hover:bg-strongblue">
       <iframe
         src="https://youtube.com/embed/tQmb6uMJrDI?si=nQAELwCcdJgEdYNQ&autoplay=1&mute=1&rel=0&loop=1&playlist=tQmb6uMJrDI"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
@@ -234,33 +202,33 @@ import syngonium from "../../public/syngonium.webp"
           (which isn't local but it was really good).
         </p>
       </div>
-    </div>
+    </Hobbycard>
   </section>
-
-  <script is:inline>
-    function runAnimation() {
-      const elements = [
-        document.getElementById("hobby1"),
-        document.getElementById("hobby2"),
-        document.getElementById("hobby3"),
-        document.getElementById("hobby4"),
-        document.getElementById("hobby5"),
-      ].filter(Boolean);
-
-      elements.forEach((el, index) => {
-        el.style.opacity = "0";
-        el.style.transform = "translateY(20px)";
-        el.getBoundingClientRect();
-        el.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
-        el.style.transitionDelay = `500ms`;
-        requestAnimationFrame(() => {
-          el.style.opacity = "1";
-          el.style.transform = "translateY(0)";
-        });
-      });
-    }
-
-    runAnimation();
-    document.addEventListener("astro:after-swap", runAnimation);
-  </script>
 </BaseLayout>
+
+<script is:inline>
+  function runAnimation() {
+    const elements = [
+      document.getElementById("hobby1"),
+      document.getElementById("hobby2"),
+      document.getElementById("hobby3"),
+      document.getElementById("hobby4"),
+      document.getElementById("hobby5"),
+    ].filter(Boolean);
+
+    elements.forEach((el, index) => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(20px)";
+      el.getBoundingClientRect();
+      el.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
+      el.style.transitionDelay = `500ms`;
+      requestAnimationFrame(() => {
+        el.style.opacity = "1";
+        el.style.transform = "translateY(0)";
+      });
+    });
+  }
+
+  runAnimation();
+  document.addEventListener("astro:after-swap", runAnimation);
+</script>

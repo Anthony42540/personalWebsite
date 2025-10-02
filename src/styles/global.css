@@ -23,3 +23,26 @@
   transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+
+.group a.primary {
+  display: inline-block;
+  height: auto;
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+  font-weight: 600;
+  background-color: #fc5200;
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: background-color 0.15s ease;
+}
+.group a.primary:hover {
+  background-color: #e64b00;
+}
+
+html {
+  overflow-y: scroll;
+}
