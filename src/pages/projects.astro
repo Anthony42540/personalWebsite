@@ -13,7 +13,6 @@ import BaseLayout from "../components/BaseLayout.astro";
       href="https://github.com/Anthony42540/GatorFieldNotebook"
       target="_blank"
       id="project1"
-      class="project-card"
     >
       <img
         src="https://github-readme-stats.vercel.app/api/pin/?username=Anthony42540&repo=GatorFieldNotebook"
@@ -26,7 +25,6 @@ import BaseLayout from "../components/BaseLayout.astro";
       href="https://github.com/Anthony42540/GatorGather"
       target="_blank"
       id="project2"
-      class="project-card"
     >
       <img
         src="https://github-readme-stats.vercel.app/api/pin/?username=Anthony42540&repo=GatorGather"
@@ -38,7 +36,6 @@ import BaseLayout from "../components/BaseLayout.astro";
       href="https://github.com/Anthony42540/RecordRackDSA"
       target="_blank"
       id="project3"
-      class="project-card"
     >
       <img
         src="https://github-readme-stats.vercel.app/api/pin/?username=Anthony42540&repo=RecordRackDSA"
@@ -50,7 +47,6 @@ import BaseLayout from "../components/BaseLayout.astro";
       href="https://github.com/Anthony42540/personalWebsite"
       target="_blank"
       id="project4"
-      class="project-card"
     >
       <img
         src="https://github-readme-stats.vercel.app/api/pin/?username=Anthony42540&repo=personalWebsite"
@@ -59,30 +55,30 @@ import BaseLayout from "../components/BaseLayout.astro";
       />
     </a>
   </section>
-  
-  <script>
-    function runAnimation() {
-      const elements = [
-        document.getElementById("project1"),
-        document.getElementById("project2"),
-        document.getElementById("project3"),
-        document.getElementById("project4"),
-      ];
-
-      elements.forEach((el, index) => {
-        if (el) {
-          el.style.opacity = "0";
-          el.style.transform = "translateY(20px)";
-          setTimeout(() => {
-            el.style.opacity = "1";
-            el.style.transform = "translateY(0)";
-          }, index * 500);
-        }
-      });
-    }
-
-    runAnimation();
-
-    document.addEventListener("astro:after-swap", runAnimation);
-  </script>
 </BaseLayout>
+
+<script is:inline>
+  function runAnimation() {
+    const elements = [
+      document.getElementById("project1"),
+      document.getElementById("project2"),
+      document.getElementById("project3"),
+      document.getElementById("project4"),
+    ].filter(Boolean);
+
+    elements.forEach((el, index) => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(20px)";
+      el.getBoundingClientRect();
+      el.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
+      el.style.transitionDelay = `500ms`;
+      requestAnimationFrame(() => {
+        el.style.opacity = "1";
+        el.style.transform = "translateY(0)";
+      });
+    });
+  }
+
+  runAnimation();
+  document.addEventListener("astro:after-swap", runAnimation);
+</script>
