@@ -9,7 +9,9 @@ export const GET: APIRoute = async () => {
 
     if (response.status === 204 || response.status > 400) {
       const lastTrackRaw = await redis.get('last_track');
-      const lastTrack = lastTrackRaw ? JSON.parse(lastTrackRaw) : { isPlaying: false };
+      let lastTrack = lastTrackRaw ? JSON.parse(lastTrackRaw) : { isPlaying: false };
+
+      lastTrack = { ...lastTrack, isPlaying: false };
 
       return new Response(JSON.stringify(lastTrack), {
         headers: { 'Content-Type': 'application/json' },
