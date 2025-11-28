@@ -2,7 +2,6 @@
 import "../styles/global.css";
 import BaseLayout from "../components/BaseLayout.astro";
 import NowPlaying from "../components/NowPlaying.svelte";
-import { Image } from "astro:assets";
 import butterwort from "../../public/butterwort.webp";
 import display from "../../public/display.webp";
 import floridagreen from "../../public/floridagreen.webp";
@@ -10,6 +9,7 @@ import greenhouse from "../../public/greenhouse.webp";
 import pitcherplant from "../../public/pitcherplant.webp";
 import syngonium from "../../public/syngonium.webp";
 import Hobbycard from "../components/hobbycard.astro";
+import ImageWithSpinner from "../components/ImageWithSpinner.astro";
 ---
 
 <BaseLayout title="/hobbies">
@@ -18,32 +18,105 @@ import Hobbycard from "../components/hobbycard.astro";
   </section>
 
   <section class="mt-6 mb-6 flex flex-col gap-4 text-2xl">
-    <Hobbycard id="hobby1" extraClasses="flex flex-row items-center hover:bg-strongblue">
-      <iframe
-        class="w-full aspect-video rounded-lg shadow-md transition-opacity duration-300 opacity-100 group-hover:opacity-0 group-hover:pointer-events-none"
-        src="https://www.youtube.com/embed/live_stream?channel=UCzYDJEdFINr4ECquimzD9mg&autoplay=1&mute=1&rel=0"
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen></iframe>
-      <div
-        class="absolute inset-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-auto"
-      >
-        <h1 class="font-semibold">/hobbies/aquariums</h1>
-        <br />
-        <p>
-          This is my 55 gallon fish tank in my childhood home's living room.
-          It's been running for about 7 years now and has gone through several
-          iterations of fish and aquascaping. I enjoy the research that
-          community tanks require and the beauty that you see with the finished
-          result. Currently there are 6 neon dwarf rainbowfish, 4 Venezuelan
-          corydoras, 2 German blue rams, and 20 rummynose tetras.
-        </p>
-        <br />
-        <p>
-          This livestream runs 24/7 on a Raspberry Pi Zero 2 W with a Raspberry
-          Pi Camera Module 3.
-        </p>
+    <Hobbycard id="hobby1" extraClasses="flex flex-col">
+      <div class="rounded-lg flex flex-wrap justify-center gap-2">
+        <ImageWithSpinner
+          src={butterwort}
+          alt="Image of butterwort"
+          imgClass="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
+          containerClass=""
+          loading="eager"
+        />
+        <div
+          class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
+        >
+          <h1 class="font-semibold">/hobbies/plants</h1>
+          <p>Pinguicula Primuliflora</p>
+        </div>
+
+        <div class="relative">
+          <ImageWithSpinner
+            src={display}
+            alt="Image of plant display"
+            imgClass="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
+            containerClass=""
+            loading="eager"
+          />
+          <div
+            class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
+          >
+            <h1 class="font-semibold">/hobbies/plants</h1>
+            <p>
+              Top to bottom: 1. Pothos/succulents, 2. Philodendron 'Florida
+              Ghost'/begonia, 3. Chinese money plant/Nepenthes Ventrata/spider
+              plant
+            </p>
+          </div>
+        </div>
+
+        <div class="relative">
+          <ImageWithSpinner
+            src={floridagreen}
+            alt="Image of florida green plant"
+            imgClass="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
+            containerClass=""
+            loading="eager"
+          />
+          <div
+            class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
+          >
+            <h1 class="font-semibold">/hobbies/plants</h1>
+            <p>Philodendron 'Florida Green'</p>
+          </div>
+        </div>
+
+        <div class="relative">
+          <ImageWithSpinner
+            src={greenhouse}
+            alt="Image of greenhouse"
+            imgClass="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
+            containerClass=""
+            loading="eager"
+          />
+          <div
+            class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
+          >
+            <h1 class="font-semibold">/hobbies/plants</h1>
+            <p>Succulents and Nepenthes Ventrata</p>
+          </div>
+        </div>
+
+        <div class="relative">
+          <ImageWithSpinner
+            src={pitcherplant}
+            alt="Image of pitcher plant"
+            imgClass="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
+            containerClass=""
+            loading="eager"
+          />
+          <div
+            class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
+          >
+            <h1 class="font-semibold">/hobbies/plants</h1>
+            <p>Nepenthes Ventrata</p>
+          </div>
+        </div>
+
+        <div class="relative">
+          <ImageWithSpinner
+            src={syngonium}
+            alt="Image of syngonium"
+            imgClass="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
+            containerClass=""
+            loading="eager"
+          />
+          <div
+            class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
+          >
+            <h1 class="font-semibold">/hobbies/plants</h1>
+            <p>Syngonium Albo</p>
+          </div>
+        </div>
       </div>
     </Hobbycard>
 
@@ -82,104 +155,10 @@ import Hobbycard from "../components/hobbycard.astro";
       <NowPlaying client:idle />
     </Hobbycard>
 
-    <Hobbycard id="hobby4" extraClasses="flex flex-col">
-      <div class="rounded-lg flex flex-wrap justify-center gap-2">
-        <div class="relative">
-          <Image
-            class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
-            src={butterwort}
-            loading="eager"
-            alt="Image of butterwort"
-          />
-          <div
-            class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
-          >
-            <h1 class="font-semibold">/hobbies/plants</h1>
-            <p>Pinguicula Primuliflora</p>
-          </div>
-        </div>
-
-        <div class="relative">
-          <Image
-            class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
-            src={display}
-            loading="eager"
-            alt="Image of plant display"
-          />
-          <div
-            class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
-          >
-            <h1 class="font-semibold">/hobbies/plants</h1>
-            <p>
-              Top to bottom: 1. Pothos/succulents, 2. Philodendron 'Florida Ghost'/begonia, 3.
-              Chinese money plant/Nepenthes Ventrata/spider plant
-            </p>
-          </div>
-        </div>
-
-        <div class="relative">
-          <Image
-            class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
-            src={floridagreen}
-            loading="eager"
-            alt="Image of florida green plant"
-          />
-          <div
-            class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
-          >
-            <h1 class="font-semibold">/hobbies/plants</h1>
-            <p>Philodendron 'Florida Green'</p>
-          </div>
-        </div>
-
-        <div class="relative">
-          <Image
-            class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
-            src={greenhouse}
-            loading="eager"
-            alt="Image of greenhouse"
-          />
-          <div
-            class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
-          >
-            <h1 class="font-semibold">/hobbies/plants</h1>
-            <p>Succulents and Nepenthes Ventrata</p>
-          </div>
-        </div>
-
-        <div class="relative">
-          <Image
-            class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
-            src={pitcherplant}
-            loading="eager"
-            alt="Image of pitcher plant"
-          />
-          <div
-            class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
-          >
-            <h1 class="font-semibold">/hobbies/plants</h1>
-            <p>Nepenthes Ventrata</p>
-          </div>
-        </div>
-
-        <div class="relative">
-          <Image
-            class="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
-            src={syngonium}
-            loading="eager"
-            alt="Image of syngonium"
-          />
-          <div
-            class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
-          >
-            <h1 class="font-semibold">/hobbies/plants</h1>
-            <p>Syngonium Albo</p>
-          </div>
-        </div>
-      </div>
-    </Hobbycard>
-
-    <Hobbycard id="hobby5" extraClasses="flex flex-row gap-4 hover:bg-strongblue">
+    <Hobbycard
+      id="hobby4"
+      extraClasses="flex flex-row gap-4 hover:bg-strongblue"
+    >
       <iframe
         src="https://youtube.com/embed/tQmb6uMJrDI?si=nQAELwCcdJgEdYNQ&autoplay=1&mute=1&rel=0&loop=1&playlist=tQmb6uMJrDI"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
@@ -213,7 +192,6 @@ import Hobbycard from "../components/hobbycard.astro";
       document.getElementById("hobby2"),
       document.getElementById("hobby3"),
       document.getElementById("hobby4"),
-      document.getElementById("hobby5"),
     ].filter(Boolean);
 
     elements.forEach((el, index) => {
@@ -229,6 +207,38 @@ import Hobbycard from "../components/hobbycard.astro";
     });
   }
 
+  function hideSpinners() {
+    document.querySelectorAll(".relative").forEach((rel) => {
+      const img = rel.querySelector("img");
+      const spinner = rel.querySelector(".spinner");
+      if (!spinner || !img) return;
+
+      if (img.complete && img.naturalHeight !== 0) {
+        spinner.style.display = "none";
+        return;
+      }
+
+      img.addEventListener(
+        "load",
+        () => {
+          spinner.style.display = "none";
+        },
+        { once: true }
+      );
+      img.addEventListener(
+        "error",
+        () => {
+          spinner.style.display = "none";
+        },
+        { once: true }
+      );
+    });
+  }
+
   runAnimation();
-  document.addEventListener("astro:after-swap", runAnimation);
+  hideSpinners();
+  document.addEventListener("astro:after-swap", () => {
+    runAnimation();
+    hideSpinners();
+  });
 </script>

@@ -56,29 +56,3 @@ import BaseLayout from "../components/BaseLayout.astro";
     </a>
   </section>
 </BaseLayout>
-
-<script is:inline>
-  function runAnimation() {
-    const elements = [
-      document.getElementById("project1"),
-      document.getElementById("project2"),
-      document.getElementById("project3"),
-      document.getElementById("project4"),
-    ].filter(Boolean);
-
-    elements.forEach((el, index) => {
-      el.style.opacity = "0";
-      el.style.transform = "translateY(20px)";
-      el.getBoundingClientRect();
-      el.style.transition = "opacity 0.6s ease-out, transform 0.6s ease-out";
-      el.style.transitionDelay = `500ms`;
-      requestAnimationFrame(() => {
-        el.style.opacity = "1";
-        el.style.transform = "translateY(0)";
-      });
-    });
-  }
-
-  runAnimation();
-  document.addEventListener("astro:after-swap", runAnimation);
-</script>

@@ -1,0 +1,49 @@
+---
+import { Image } from 'astro:assets';
+
+const { src, alt = '', imgClass = '', containerClass = '', loading = undefined } = Astro.props;
+
+const uid = `imgspinner-${Math.random().toString(36).slice(2, 9)}`;
+---
+
+<div class={`relative ${containerClass}`} data-imgspinner={uid}>
+  <div class="spinner absolute inset-0 flex items-center justify-center bg-white/30">
+    <svg class="animate-spin h-8 w-8 text-strongblue" viewBox="0 0 24 24" aria-hidden="true">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle>
+      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+    </svg>
+  </div>
+
+  <Image
+    src={src}
+    alt={alt}
+    class={imgClass}
+    loading={loading}
+  />
+
+  <script is:inline>
+    (function() {
+      try {
+        const uid = document.currentScript?.parentElement?.dataset?.imgspinner;
+        if (!uid) return;
+        const container = document.querySelector(`[data-imgspinner="${uid}"]`);
+        if (!container) return;
+        const img = container.querySelector('img');
+        const spinner = container.querySelector('.spinner');
+        if (!spinner || !img) return;
+
+        function hide() { spinner.style.display = 'none'; }
+
+        if (img.complete && img.naturalHeight !== 0) {
+          hide();
+          return;
+        }
+
+        img.addEventListener('load', hide, { once: true });
+        img.addEventListener('error', hide, { once: true });
+      } catch (e) {
+        console.error(e);
+      }
+    })();
+  </script>
+</div>
