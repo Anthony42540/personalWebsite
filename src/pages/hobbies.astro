@@ -20,18 +20,20 @@ import ImageWithSpinner from "../components/ImageWithSpinner.astro";
   <section class="mt-6 mb-6 flex flex-col gap-4 text-2xl">
     <Hobbycard id="hobby1" extraClasses="flex flex-col">
       <div class="rounded-lg flex flex-wrap justify-center gap-2">
-        <ImageWithSpinner
-          src={butterwort}
-          alt="Image of butterwort"
-          imgClass="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
-          containerClass=""
-          loading="eager"
-        />
-        <div
-          class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
-        >
-          <h1 class="font-semibold">/hobbies/plants</h1>
-          <p>Pinguicula Primuliflora</p>
+        <div class="relative">
+          <ImageWithSpinner
+            src={butterwort}
+            alt="Image of butterwort"
+            imgClass="border-strongblue border-2 rounded-lg max-w-66 max-h-100 object-cover shadow-md"
+            containerClass=""
+            loading="eager"
+          />
+          <div
+            class="absolute inset-0 bg-strongblue/80 text-white opacity-0 flex items-center flex-col text-center p-2 rounded-lg transition-opacity duration-300 hover:opacity-100"
+          >
+            <h1 class="font-semibold">/hobbies/plants</h1>
+            <p>Pinguicula Primuliflora</p>
+          </div>
         </div>
 
         <div class="relative">
