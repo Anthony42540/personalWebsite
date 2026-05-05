@@ -124,33 +124,28 @@ import ImageWithSpinner from "../components/ImageWithSpinner.astro";
 
     <Hobbycard
       id="hobby2"
-      extraClasses="flex flex-col items-center overflow-hidden hover:bg-strongblue"
+      extraClasses="flex flex-col items-center overflow-hidden"
     >
-      <iframe
-        class="rounded-lg opacity-100 group-hover:opacity-0 transition-opacity duration-300 shadow-md w-full"
-        height="160"
-        frameborder="0"
-        allowtransparency="true"
-        scrolling="no"
-        src="https://www.strava.com/athletes/26637430/activity-summary/48fe8c3af0b45ca094837dea098009f24e3385ea"
-      ></iframe>
-      <a
-        target="_parent"
-        href="https://www.strava.com/athletes/26637430?utm_campaign=athlete_share&utm_content=26637430&utm_medium=widget&utm_source=localhost"
-        class="absolute bottom-5 right-5 primary z-10"
-      >
-        View all of Anthony's activity »
+      <a href="https://www.strava.com/athletes/26637430" target="_blank" rel="noopener noreferrer" class="relative w-full group/strava block">
+        <iframe
+          class="rounded-lg shadow-md w-full group-hover/strava:opacity-0 transition-opacity duration-300 pointer-events-none"
+          height="160"
+          frameborder="0"
+          allowtransparency="true"
+          scrolling="no"
+          src="https://www.strava.com/athletes/26637430/activity-summary/48fe8c3af0b45ca094837dea098009f24e3385ea"
+        ></iframe>
+        <div
+          class="absolute inset-0 bg-strongblue text-white opacity-0 group-hover/strava:opacity-100 pointer-events-none transition-opacity duration-300 overflow-auto p-4 rounded-lg"
+        >
+          <h1 class="font-semibold">/hobbies/biking</h1>
+          <p>
+            I enjoy biking around city and nature trails. I work on my bike myself
+            for fun and to keep it in good shape. Whenever I'm in a new city I try
+            to find new bike shops to visit.
+          </p>
+        </div>
       </a>
-      <div
-        class="absolute inset-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-auto"
-      >
-        <h1 class="font-semibold">/hobbies/biking</h1>
-        <p>
-          I enjoy biking around city and nature trails. I work on my bike myself
-          for fun and to keep it in good shape. Whenever I'm in a new city I try
-          to find new bike shops to visit.
-        </p>
-      </div>
     </Hobbycard>
 
     <Hobbycard id="hobby3" extraClasses="flex flex-row hover:bg-strongblue">
